@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-lg-12 col-xl-11">
+            <div class=" text-black"  >
+                <div class="">
+                    <p class="text-center h1 fw-bold mb-2 mx-1 mx-md-4 mt-1">Book Ticket</p>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 mt-5 order-lg-1"> 
+                           
+                            
+                            
+                             <form class="mx-1 mx-md-4 pt-5" #ticketForm="ngForm">
+                                
+                                <div class="row">
+                                  
+                                  <div class="col-6">
+                                    <label class="form-label" for="fromStationId">From Station</label>
+                                    <select [(ngModel)]="travelObj.fromStationId" name="fromStationId" id="fromStationId" class="form-select" required>
+                                      <option value="">From Station</option>
+                                      <option *ngFor="let station of stationList" [value]="station.stationID">{{station.stationName}}</option>
+                                    </select>
+                                   
+                                    <div *ngIf="ticketForm.controls['fromStationId']?.errors?.['required']" class="text-danger">From Station is required</div>
+                                  </div>
+                             
+                                  <div class="col-6">
+                                    <label class="form-label" for="toStationId">To Station</label>
+                                    <select [(ngModel)]="travelObj.toStationId" name="toStationId" id="toStationId" class="form-select" required>
+                                      <option value="">To Station</option>
+                                      <option *ngFor="let station of stationList" [value]="station.stationID">{{station.stationName}}</option>
+                                    </select>
+                                  
+                                    <div *ngIf="ticketForm.controls['toStationId']?.errors?.['required']" class="text-danger">To Station is required</div>
+                                    <div *ngIf="ticketForm.controls['toStationId']?.errors?.['sameStation']" class="text-danger">From and To Stations cannot be the same</div>
+                                  </div>
+                                </div>
+                               
+                                <div class="row pt-3">
+                                  <div class="col-6">
+                                    <label class="form-label" for="dateOfTravel">Date Of Travel</label>
+                                    <input type="date" [(ngModel)]="travelObj.dateOfTravel" name="dateOfTravel" id="dateOfTravel" class="form-control" required />
+                                   
+                                    <div *ngIf="ticketForm.controls['dateOfTravel']?.errors?.['required']" class="text-danger">Date of Travel is required</div>
+                                    <div *ngIf="ticketForm.controls['dateOfTravel']?.errors?.['pastDate']" class="text-danger">Past dates are not allowed</div>
+                                  </div>
+                                </div>
+                               
+                                <div class="d-flex justify-content-center mt-4 mx-4 mb-3 mb-lg-4">
+                                  <button type="button" class="btn btn-primary" (click)="onSearch(ticketForm)" [disabled]="ticketForm.invalid">Search</button>
+                                </div>
+                              </form>
+                              
+                             
+                                 
+                                      
+                        </div>
+                        <div class="col-md-10 pt-3 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                            <img src="assets/banner-5.png"
+                                class="img-fluid" alt="Sample image">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<h1 class="display-6 text-center">Train Ticket Booking </h1>
+   
+<div class="container  ">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/banner-6.png" class="img-fluid" alt="train" />
+      </div>
+      <div class="col-md-6">
+        <h1 class="dis mt-3">Welcome to <b><span class="display-5">Train</span></b></h1>
+        
+        <h4 class="small mt-4">Please enter your details below to log in</h4>
+     
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          
+          <div class="form-group ">
+              <label for="phone">Phone Number<span style="color: red">*</span></label>
+              <input type="text" id="phone" formControlName="phone" [(ngModel)]="registerObj.phone" class="large-width">
+              <div class="error" *ngIf="loginForm.get('phone')?.invalid && (loginForm.get('phone')?.dirty || loginForm.get('phone')?.touched) ">
+                <div *ngIf="loginForm.get('phone')?.errors?.['required']">Phone number is required.</div>
+                <div *ngIf="loginForm.get('phone')?.errors?.['pattern']">Invalid phone number format.</div>
+              </div>
+          </div>
+           
+         
+           
+              <div class="form-group">
+              <label for="password">Password<span style="color: red">*</span></label>
+              <input type="password" id="password" formControlName="password" [(ngModel)]="registerObj.password"class="large-width">
+              <div  class="error" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" >
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+              </div>
+              </div>
+   
+         
+            If you don't have an account? 
+            <a href="#" class="color color-primary" data-bs-toggle="modal" data-bs-target="#registerModel">Register here</a>
+           <div class="d-grid gap-2">
+            <button type="submit"  class="btn login-btn proceed-btn btn-primary btn-block mt-3 mb-3"  [disabled]="loginForm.invalid">Login</button>
+          </div>
+          </form>
+
+      </div>
+  
+    </div>
+</div>
+
+     <div class="modal"  #registerModel id="registerModel" data-bs-backdrop="false" >
+            <div class="modal-dialog">
+              <div class="modal-content"> 
+                <div class="modal-header">
+                  <h4 class="modal-title">Register</h4>
+                  <button type="button" class="btn-close"  (click)="closeRegister()" data-bs-dismiss="modal"></button>
+                </div> 
+                <div class="modal-body">
+                    
+                <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                    <div>
+                      <label for="firstName">First Name:</label>
+                      <input type="text" id="firstName" formControlName="firstName" [(ngModel)]="registerObj.firstName"class="large-width">
+                      <div class="error" *ngIf="validateFirstName()">First name is required and should contain only alphabets.</div>
+                    </div>
+                    <div>
+                      <label for="lastName">Last Name:</label>
+                      <input type="text" id="lastName" formControlName="lastName" [(ngModel)]="registerObj.lastName"class="large-width">
+                      <div class="error" *ngIf="validateLastName()">Last name is required and should contain only alphabets.</div>
+                    </div>
+                    <div>
+                      <label for="email">Email:</label>
+                      <input type="email" id="email" formControlName="email"  [(ngModel)]="registerObj.email"class="large-width">
+                      <div   class="error" *ngIf="validateEmail()"  >Invalid email format.</div>
+                    </div>
+                    <div>
+                      <label for="phone">Phone:</label>
+                      <input type="text" id="phone" formControlName="phone" [(ngModel)]="registerObj.phone"class="large-width">
+                      <div class="error" *ngIf="validatePhone()">Invalid phone number. It should contain 10 digits. </div>
+                    </div>
+                    <div>
+                      <label for="password">Password:</label>
+                      <input type="password" id="password" formControlName="password" [(ngModel)]="registerObj.password"class="large-width">
+                      <div class="error" *ngIf="validatePassword()">Password must be at least 6 characters long.</div>
+                    </div>
+                    <div class="register">
+                    <button type="button" class="btn btn-danger me-2 reg mr-3 " data-bs-dismiss="modal">Close</button>
+                
+                    <button type="submit"  class="btn btn-primary" [disabled]="registerForm.invalid" >Register</button>
+                  </div>
+                  </form>
+                  
+                <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-success" (click)="onRegister()" >Register</button>
+                </div>  -->
+              </div>
+            </div>
+          </div> 
+
+
+
+
+<!-- Your other HTML content -->
+<div class="modal" #successModal id="successModal"  tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title su">Success</h5>
+        <button type="button" class="close" aria-label="Close" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-center text-success">Registration Successful!</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Your other HTML content -->
+
+
+
+
+         

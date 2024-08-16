@@ -1,0 +1,107 @@
+
+<div class="coll">
+    <app-navbar></app-navbar></div>
+    <div class="col">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-hover mt-5">
+                <thead>
+                    <tr>
+                        <th>Sr No</th> 
+                        <th>Train Name</th>
+                        <th>Train No</th>
+                        <th>Travel Date</th>
+                        <th>From Station</th>
+                        <th>To Station </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of trainList; let index = index">
+                        
+                        <td>{{index+1}}</td> 
+                        <td>{{item.trainName}}</td>
+                        <td>{{item.trainNo}}</td>
+                        <td>{{item.departureDate | date:'dd-MMM-yy'}}</td>
+                        <td>{{item.departureStationName}}</td>
+                        <td>{{item.arrivalStationName}}</td>
+                    </tr>
+                </tbody>
+    
+            </table>
+    
+            <!-- <div class="row">
+                <div class="col-12 text-start">
+                    <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">Add New Train</button>
+                </div>
+            </div> -->
+    
+            
+            <!-- <div class="modal" [class.show]="showModal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content"> 
+                    <div class="modal-header">
+                      <h4 class="modal-title">New Train</h4>
+                      <button type="button" class="btn-close" (click)="closeModal()"></button>
+                    </div> 
+                    <div class="modal-body">
+                        
+                        <div class="mb-3">
+                            <label for="trainId" class="form-label">Train ID</label>
+                            <input type="text" class="form-control" id="trainId" name="trainId" [(ngModel)]="trainObj.trainId">
+                        </div>
+                   
+                        <div class="mb-3">
+                            <label for="trainNo" class="form-label">Train No</label>
+                            <input type="text" class="form-control" id="trainNo" name="trainNo" [(ngModel)]="trainObj.trainNo">
+                        </div>
+                       
+                        <div class="mb-3">
+                            <label for="trainName" class="form-label">Train Name</label>
+                            <input type="text" class="form-control" id="trainName" name="trainName" [(ngModel)]="trainObj.trainName">
+                        </div>
+                        <div>
+                            <label for="departureStationId">Departure Station ID:</label>
+                            <input type="number" id="departureStationId"Name="departureStationId"  [(ngModel)]="trainObj.departureStationId"  required>
+                          </div>
+                        
+                          <div>
+                            <label for="arrivalStationId">Arrival Station ID:</label>
+                            <input type="number" id="arrivalStationId" Name="arrivalStationId"  [(ngModel)]="trainObj.arrivalStationId" required>
+                          </div>
+                     
+                        <div class="mb-3">
+                            <label for="arrivalTime" class="form-label">Arrival Time</label>
+                            <input type="time" class="form-control" id="arrivalTime" name="arrivalTime" [(ngModel)]="trainObj.arrivalTime">
+                        </div>
+                      
+                        <div class="mb-3">
+                            <label for="departureTime" class="form-label">Departure Time</label>
+                            <input type="time" class="form-control" id="departureTime" name="departureTime" [(ngModel)]="trainObj.departureTime">
+                        </div>
+                     
+                        <div class="mb-3">
+                            <label for="totalSeats" class="form-label">Total Seats</label>
+                            <input type="number" class="form-control" id="totalSeats" name="totalSeats" [(ngModel)]="trainObj.totalSeats">
+                        </div>
+                      
+                        <div class="mb-3">
+                            <label for="departureDate" class="form-label">Departure Date</label>
+                            <input type="datetime-local" class="form-control" id="departureDate" name="departureDate" [(ngModel)]="trainObj.departureDate">
+                        </div>
+                     
+                        <div class="mb-3">
+                            <label for="bookedSeats" class="form-label">Booked Seats</label>
+                            <input type="number" class="form-control" id="bookedSeats" name="bookedSeats" [(ngModel)]="trainObj.bookedSeats">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" (click)="closeModal()">Close</button>
+                      <button type="button" class="btn btn-danger" (click)="saveTrain()">Save</button>
+                    </div> 
+                  </div>
+                </div>
+            </div>
+             -->
+        </div>
+    </div>
+    </div>

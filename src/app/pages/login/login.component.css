@@ -1,0 +1,47 @@
+.error {
+  color: red;
+  font-size: 12px; /* adjust the font size as needed */
+}
+
+.dis {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.display-5 {
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.display-6 {
+  font-weight: 500;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 1000px;
+    margin-top: 80px;
+    background-color: rgb(250, 253, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .display-6 {
+    margin-top: 80px;
+    font-weight: 500;
+  }
+  .large-width {
+    width: 470px;
+    /* Adjust the width as per your requirement */
+  }
+  .register {
+    margin-left: 290px;
+    margin-top: 20px;
+  }
+  .su {
+    margin-left: 200px;
+  }
+}
+.modal-backdrop {
+  /* Your custom backdrop styles */
+  /* For example, to remove the fade effect */
+  opacity: 0;
+}/*# sourceMappingURL=login.component.css.map */

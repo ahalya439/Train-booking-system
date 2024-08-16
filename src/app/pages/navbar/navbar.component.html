@@ -1,0 +1,39 @@
+
+<header>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light nav-yellow  border-bottom border-top p-0">
+        <div class="container">
+            <a class="navbar-brand fs-4 fw-bold " href="#">  <span class="text-white">
+              <img src="assets/banner-3.png" style="height:25px;border-radius:10px;margin-top:-2px">  Railway
+                </span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!--Toggle  -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+         
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0  text-center ">
+        
+                            <li class="nav-item" routerLinkActive="active">
+                                <a class="nav-link fw-semibold text-white  me-1" routerLink="/home">Home</a>
+                            </li>
+                            <li class="nav-item" routerLinkActive="active">
+                                <a class="nav-link fw-semibold text-white  me-1" routerLink="/trains">Trains</a>
+                            </li>
+                        
+                            <li class="nav-item" *ngIf="!loggedUserData" routerLinkActive="active">
+                                <a   class="nav-link fw-semibold  text-white  me-1"  routerLink="/bookings"  >My Bookings</a>
+                            </li> 
+                            <li class="nav-item" *ngIf="loggedUserData" routerLinkActive="active">
+                                <a   class="nav-link fw-semibold  text-white  me-1"  >{{loggedUserData.phone}}</a>
+                            </li> 
+                            <li class="nav-item" *ngIf="!loggedUserData" routerLinkActive="active">
+                                <a (click)="logoff()" a href="#"  class="nav-link fw-semibold  text-white  me-1"  >Log Off</a>
+                            </li> 
+                </ul> 
+            </div>
+        </div>
+    </nav>
+  </header>
